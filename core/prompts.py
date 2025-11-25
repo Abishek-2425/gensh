@@ -6,8 +6,7 @@ def build_prompt(instruction: str, os_name: str):
     # OS-specific guidance
     if os_name == "windows":
         os_rules = """
-Use Windows PowerShell commands only.
-Examples: dir, Get-Process, Get-ChildItem, Remove-Item, etc.
+Use Windows command-prompt commands only.
 Do NOT output Linux or macOS commands like ls, rm, grep, chmod, etc.
 """
     elif os_name == "mac":
@@ -45,14 +44,17 @@ Instruction: "{instruction}"
 
 def build_explain_prompt(command: str):
     """
-    Prompt for reverse-engineering a shell command.
+    Prompt for concise reverse-explanation of a shell command.
     """
     return f"""
-You explain what a shell command does in clear, accurate, technical detail.
-Avoid hallucinations. If uncertain, state uncertainty.
+Explain this shell command briefly and accurately.
+
+Rules:
+- Max 3 short sentences.
+- No step-by-step breakdown.
+- Mention risks only if critical.
+- No filler.
 
 COMMAND:
 {command}
-
-Explain step-by-step what it does, risks involved, and what system components it touches.
 """
