@@ -19,29 +19,29 @@ import os
 
 def create_app():
     
-    app = typer.Typer(help="Gensh — Natural-language to shell command converter")   
+    app = typer.Typer(help="GSh — Natural-language to shell command converter")   
 
     # --------------------------
-    # Subgroup: gensh config ...
+    # Subgroup: gsh config ...
     # --------------------------
     config_app = typer.Typer(help="View or change configuration")
     app.add_typer(config_app, name="config")    
 
     # --------------------------
-    # Subgroup: gensh history ...
+    # Subgroup: gsh history ...
     # --------------------------
     history_app = typer.Typer(help="View or manage command history")
     app.add_typer(history_app, name="history")  
 
     # --------------------------
-    # Subgroup: gensh os ...
+    # Subgroup: gsh os ...
     # --------------------------
     os_app = typer.Typer(help="Quick OS selection")
     app.add_typer(os_app, name="os")    
 
 
     # =====================================================================
-    # MAIN COMMAND: gensh run "<instruction>"
+    # MAIN COMMAND: gsh run "<instruction>"
     # =====================================================================
     @app.command()
     def run(
@@ -74,11 +74,11 @@ def create_app():
     @app.command("version")
     def show_version():
         """
-        Show the current gensh version.
+        Show the current gsh version.
         """
         try:
-            pkg_version = version("gensh-cli")  # Use your actual package name
-            print(f"[bold cyan]gensh version:[/bold cyan] {pkg_version}")
+            pkg_version = version("gsh")  # Use your actual package name
+            print(f"[bold cyan]gsh version:[/bold cyan] {pkg_version}")
         except PackageNotFoundError:
             # fallback if running from local source - try reading pyproject.toml
             pkg_version = "unknown"
@@ -97,7 +97,7 @@ def create_app():
             except Exception:
                 pass
 
-            print(f"[bold cyan]gensh version:[/bold cyan] {pkg_version}")
+            print(f"[bold cyan]gsh version:[/bold cyan] {pkg_version}")
 
 
     # =====================================================================
@@ -179,7 +179,7 @@ def create_app():
         print(f"[bold green]OS set to {os_name}[/bold green]")  
 
 
-    # Convenience commands: gensh os windows / linux / mac
+    # Convenience commands: gsh os windows / linux / mac
     @os_app.command("windows")
     def os_windows():
         os_set("windows")   
@@ -199,7 +199,7 @@ def create_app():
     # history subgroup
     # ===================================================================== 
 
-    HISTORY_FILE = os.path.expanduser("~/.gensh-cli_history.json") 
+    HISTORY_FILE = os.path.expanduser("~/.gsh-history.json") 
 
     @history_app.command("show")
     def history_show():
@@ -238,16 +238,16 @@ def create_app():
     app.add_typer(tools_app, name="tools")  
 
     # --------------------------------------------------------------
-    # gensh tools diagnose
+    #  gsh tools diagnose
     # --------------------------------------------------------------
     @tools_app.command("diagnose")
     def tools_diagnose():
         """
-        Diagnose gensh configuration and API connectivity.
+        Diagnose gsh configuration and API connectivity.
         """ 
 
         config = load_config()
-        print("[bold cyan]gensh Diagnostics[/bold cyan]")
+        print("[bold cyan]gsh Diagnostics[/bold cyan]")
         # 1. Check config keys
         print("\n[green]✔ Loaded configuration[/green]")
         for k, v in config.items():
@@ -274,7 +274,7 @@ def create_app():
 
 
     # --------------------------------------------------------------
-    # gensh tools models
+    #  gsh tools models
     # --------------------------------------------------------------
     @tools_app.command("models")
     def tools_models():
@@ -285,7 +285,7 @@ def create_app():
         api_key = config.get("api_key") or config.get("gemini_api_key") 
 
         if not api_key:
-            print("[red]Missing API key. Configure using gensh config set api_key <key>[/red]")
+            print("[red]Missing API key. Configure using gsh config set api_key <key>[/red]")
             raise typer.Exit()  
 
         import google.generativeai as genai 
@@ -303,7 +303,7 @@ def create_app():
 
 
     # --------------------------------------------------------------
-    # gensh tools explain "<command>"
+    # gsh tools explain "<command>"
     # --------------------------------------------------------------
     @tools_app.command("explain")
     def tools_explain(cmd: str):
