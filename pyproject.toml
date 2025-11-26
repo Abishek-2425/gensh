@@ -3,8 +3,8 @@ requires = ["setuptools>=65.5.1", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gensh-cli"
-version = "0.1.2"
+name = "gsh"
+version = "0.1.1"
 description = "Natural-language to shell command converter Grok API"
 readme = { file = "README.md", content-type = "text/markdown" }
 authors = [{ name = "Abishek S", email = "your-email@example.com" }]
@@ -31,4 +31,4 @@ where = ["."]
 include = ["cli", "cli.*", "core", "core.*"]
 
 [project.scripts]
-gensh = "cli.main:main"
+gsh = "gsh.main:app"
