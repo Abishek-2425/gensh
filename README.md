@@ -218,6 +218,6 @@ Commands are adapted to the selected OS automatically.
 
 ---
 
-Happy scripting with **flyn** — Flexible Language Yielding Notables, crafted to turn your thoughts into precise shell actions.
+Happy scripting with **flyn** — crafted to turn your thoughts into precise shell actions.
 
-Powered by Python, fueled by curiosity. 🚀
+Powered by Python, guided by late-night-curiosity, fuelled by caffeine. 🚀
