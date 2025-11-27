@@ -19,10 +19,10 @@ import os
 
 def create_app():
     
-    app = typer.Typer(help="gsh — Natural-language to shell command converter")   
+    app = typer.Typer(help="flyn — Natural-language to shell command converter")   
 
     # --------------------------
-    # Subgroup: gsh config ...
+    # Subgroup: flyn config ...
     # --------------------------
     config_app = typer.Typer(help="View or change configuration")
     app.add_typer(config_app, name="config")    

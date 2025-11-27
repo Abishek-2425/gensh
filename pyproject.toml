@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "flyn"
-version = "0.1.1"
-description = "Natural-language to shell command converter Grok API"
+version = "0.1.2"
+description = "Natural-language to shell command converter / executor with Grok API"
 readme = { file = "README.md", content-type = "text/markdown" }
 authors = [{ name = "Abishek S", email = "abishek642005@gmail.com" }]
 requires-python = ">=3.10"
@@ -26,7 +26,7 @@ classifiers = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["cli", "cli.*", "core", "core.*"]
+include = ["flyn*"]
 
 [project.scripts]
-flyn = "cli.main:main"
+flyn = "flyn.cli.main:main"

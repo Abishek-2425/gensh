@@ -1,4 +1,4 @@
-# Quick Workspace Executor (QWE)
+# Quick Workspace Executor (flyn)
 
 
 * A natural-language to shell command converter CLI tool. It allows you to type instructions in plain English, and it generates OS-specific shell commands safely. It also includes diagnostic tools, command explanation, history tracking, and configuration management.
@@ -15,7 +15,7 @@
 - Configure API key, model, OS, and temperature
 - Diagnostic tools for verifying API and model connectivity
 - Explain shell commands with detailed breakdowns
-- Version command to check current qwe version
+- Version command to check current flyn version
 ```
 
 ---
@@ -26,7 +26,7 @@
 
 ```bash
 git clone <repo-url>
-cd qwe
+cd flyn
 ```
 
 2. Create a virtual environment:
@@ -61,14 +61,14 @@ This will install `typer`, `rich`, `google-generativeai`, and other required pac
 
 ## Usage
 
-All commands use the `qwe` CLI.
+All commands use the `flyn` CLI.
 
 ### Run Commands
 
 Generate shell commands from natural language:
 
 ```bash
-qwe run "<instruction>" [--dry-run/--run]
+flyn run "<instruction>" [--dry-run/--run]
 ```
 
 * `--dry-run` (default) – shows the command without executing it.
@@ -77,7 +77,7 @@ qwe run "<instruction>" [--dry-run/--run]
 **Example:**
 
 ```bash
-qwe run "count the number of files in the folder"
+flyn run "count the number of files in the folder"
 ```
 
 Output:
@@ -93,13 +93,13 @@ Dry run: Command not executed.
 
 ### Configuration
 
-Manage qwe configuration:
+Manage flyn configuration:
 
 ```bash
-qwe config show           # Show all config values
-qwe config get <key>      # Get a single config key
-qwe config set <key> <value>  # Update a config value
-qwe config reset          # Reset to defaults
+flyn config show           # Show all config values
+flyn config get <key>      # Get a single config key
+flyn config set <key> <value>  # Update a config value
+flyn config reset          # Reset to defaults
 ```
 * Defalut OS Configuration : Windows
 
@@ -109,8 +109,8 @@ qwe config reset          # Reset to defaults
 **Example:**
 
 ```bash
-qwe config set os linux
-qwe config set temperature 0.3
+flyn config set os linux
+flyn config set temperature 0.3
 ```
 
 ---
@@ -120,15 +120,15 @@ qwe config set temperature 0.3
 Switch OS modes quickly:
 
 ```bash
-qwe os windows
-qwe os linux
-qwe os mac
+flyn os windows
+flyn os linux
+flyn os mac
 ```
 
 Or use:
 
 ```bash
-qwe os set <os>
+flyn os set <os>
 ```
 
 ---
@@ -138,8 +138,8 @@ qwe os set <os>
 Track your commands:
 
 ```bash
-qwe history show   # Show last 50 commands
-qwe history clear  # Clear command history
+flyn history show   # Show last 50 commands
+flyn history clear  # Clear command history
 ```
 
 ---
@@ -149,19 +149,19 @@ qwe history clear  # Clear command history
 Diagnostic and reverse-analysis tools:
 
 ```bash
-qwe tools diagnose         # Verify config, API, and model
-qwe tools models           # List available Gemini models
-qwe tools explain "<command>"  # Explain a shell command
+flyn tools diagnose         # Verify config, API, and model
+flyn tools models           # List available Gemini models
+flyn tools explain "<command>"  # Explain a shell command
 ```
 
 ---
 
 ### Version
 
-Check the current qwe version:
+Check the current flyn version:
 
 ```bash
-qwe version
+flyn version
 ```
 
 ---
@@ -170,21 +170,21 @@ qwe version
 
 | Command                                       | Description                                                  |
 | --------------------------------------------- | ------------------------------------------------------------ |
-| `qwe run "<instruction>" [--dry-run/--run]` | Generate shell commands from natural language.               |
-| `qwe version`                               | Show the current qwe version.                              |
-| `qwe config show`                           | Display all configuration values.                            |
-| `qwe config get <key>`                      | Get a single configuration value.                            |
-| `qwe config set <key> <value>`              | Update a configuration value (e.g., OS, model, temperature). |
-| `qwe config reset`                          | Reset configuration to defaults.                             |
-| `qwe os set <os>`                           | Set OS mode explicitly.                                      |
-| `qwe os windows`                            | Quick set OS to Windows.                                     |
-| `qwe os linux`                              | Quick set OS to Linux.                                       |
-| `qwe os mac`                                | Quick set OS to macOS.                                       |
-| `qwe history show`                          | Show the last 50 commands executed.                          |
-| `qwe history clear`                         | Clear all command history.                                   |
-| `qwe tools diagnose`                        | Check configuration, API key, and model.                     |
-| `qwe tools models`                          | List available Gemini models for your API key.               |
-| `qwe tools explain "<command>"`             | Ask Gemini to explain what a shell command does.             |
+| `flyn run "<instruction>" [--dry-run/--run]` | Generate shell commands from natural language.               |
+| `flyn version`                               | Show the current flyn version.                              |
+| `flyn config show`                           | Display all configuration values.                            |
+| `flyn config get <key>`                      | Get a single configuration value.                            |
+| `flyn config set <key> <value>`              | Update a configuration value (e.g., OS, model, temperature). |
+| `flyn config reset`                          | Reset configuration to defaults.                             |
+| `flyn os set <os>`                           | Set OS mode explicitly.                                      |
+| `flyn os windows`                            | Quick set OS to Windows.                                     |
+| `flyn os linux`                              | Quick set OS to Linux.                                       |
+| `flyn os mac`                                | Quick set OS to macOS.                                       |
+| `flyn history show`                          | Show the last 50 commands executed.                          |
+| `flyn history clear`                         | Clear all command history.                                   |
+| `flyn tools diagnose`                        | Check configuration, API key, and model.                     |
+| `flyn tools models`                          | List available Gemini models for your API key.               |
+| `flyn tools explain "<command>"`             | Ask Gemini to explain what a shell command does.             |
 
 ---
 
@@ -194,7 +194,7 @@ qwe version
 * Linux (bash, sh)
 * macOS (zsh, bash)
 
-qwe ensures commands are OS-specific and safe to run.
+flyn ensures commands are OS-specific and safe to run.
 
 ---
 
@@ -221,7 +221,7 @@ qwe ensures commands are OS-specific and safe to run.
 * Virtual environment recommended (`venv/`)
 
 ```markdown
-Happy scripting with qwe — turning your instructions into shell commands!  
+Happy scripting with flyn — turning your instructions into shell commands!  
 
 Powered by Python, fueled by coffee, guided by late-night curiosity ☕🚀
 ```
