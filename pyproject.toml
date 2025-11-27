@@ -29,4 +29,4 @@ where = ["."]
 include = ["cli", "cli.*", "core", "core.*"]
 
 [project.scripts]
-qwe = "cli.main:main"
+flyn = "cli.main:main"
