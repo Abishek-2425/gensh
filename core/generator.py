@@ -5,7 +5,7 @@ def generate_command(user_input, config):
     api_key = config.get("key")
     model_name = config.get("model", "gemini-2.0-flash")
     os_name = config.get("os", "windows").lower()
-    temperature = config.get("temperature", 0.4)
+    temp = config.get("temp", 0.4)
 
     if not api_key:
         return {
@@ -29,7 +29,7 @@ def generate_command(user_input, config):
     try:
         response = model.generate_content(
             prompt,
-            generation_config={"temperature": temperature}
+            generation_config={"temp": temp}
         )
         text = (response.text or "").strip()
     except Exception as e:

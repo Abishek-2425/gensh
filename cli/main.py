@@ -139,11 +139,11 @@ def create_app():
             raise typer.Exit()  
 
             # Coerce certain keys to float
-        if key.lower() == "temperature":
+        if key.lower() == "temp":
             try:
                 value = float(value)
             except ValueError:
-                print("[red]Temperature must be a numeric value[/red]")
+                print("[red]temp must be a numeric value[/red]")
                 raise typer.Exit()
 
         update_config(key, value)

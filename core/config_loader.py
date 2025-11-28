@@ -8,7 +8,7 @@ DEFAULT_CONFIG = {
     "key": "",
     "model": "gemini-2.0-flash",
     "os": "windows",
-    "temperature": 0.0
+    "temp": 0.0
 }
 
 def load_config():
